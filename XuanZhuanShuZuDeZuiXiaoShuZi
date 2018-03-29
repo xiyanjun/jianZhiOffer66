@@ -1,0 +1,14 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def minNumberInRotateArray(self, rotateArray):
+        # write code here
+        size=len(rotateArray)
+        if size==0:
+            return 0
+        if size==1:
+            return rotateArray[0]
+        pre=rotateArray[0]
+        for i in range(size):
+            if rotateArray[i]<pre:
+                return rotateArray[i]
+        return pre
