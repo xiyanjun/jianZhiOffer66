@@ -16,3 +16,27 @@ class Solution:
             return
         return res[-k]
         
+        
+#方法二
+# -*- coding:utf-8 -*-
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def FindKthToTail(self, head, k):
+        # write code here
+        p=head
+        q=head
+        count=0
+        while p:
+            p=p.next
+            count+=1
+        if count==0 or count<k:
+            return
+        for i in range(count-k):
+            q=q.next
+        return q
+            
+        
