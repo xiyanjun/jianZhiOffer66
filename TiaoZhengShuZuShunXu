@@ -1,0 +1,12 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def reOrderArray(self, array):
+        # write code here
+        res1=[]
+        res2=[]
+        for i in range(len(array)):
+            if array[i]%2==0:
+                res1.append(array[i])
+            else:
+                res2.append(array[i])
+        return res2+res1
