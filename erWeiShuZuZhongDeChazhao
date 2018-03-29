@@ -1,0 +1,20 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        lenth1=len(array)
+        lenth2=len(array[0])
+        for i in range(lenth1):
+            low=0
+            high=lenth2-1
+            mid=(lenth2-1)//2
+            while array[i] and array[i][low]<=target<=array[i][high] and low<high-1:
+                mid=(high-low)//2+low
+                if array[i][low]==target or array[i][mid]==target or array[i][high]==target:
+                    return True
+                elif array[i][mid]>target:
+                    high=mid
+                else:
+                    low=mid
+        return False
