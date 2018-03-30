@@ -1,0 +1,21 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def movingCount(self,threshold, rows, cols):
+        # write code here
+        # 求解坐标数位之和
+        def sumrc(x,y):
+            sum = 0
+            for i in str(x):
+                sum += int(i)
+            for j in str(y):
+                sum += int(j)
+            return sum
+        mn=[[0 for _ in range(cols)] for _ in range(rows)]
+        def counts(a,b):
+            if 0 <= a <= rows-1 and 0 <= b <= cols-1 and mn[a][b]==0 and sumrc(a,b)<=threshold:
+                mn[a][b]=1
+                return counts(a+1,b)+counts(a-1,b)+counts(a,b-1)+counts(a,b+1)+1
+            else:
+                return 0
+        res=counts(0,0)
+        return res
